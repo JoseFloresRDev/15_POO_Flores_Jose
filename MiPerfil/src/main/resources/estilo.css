@@ -1,0 +1,51 @@
+.root {
+    -fx-background-color: #f4f7fb;
+    -fx-font-family: "Arial";
+}
+
+.label {
+    -fx-text-fill: #333333;
+    -fx-font-size: 14px;
+}
+
+#titulo {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f4e79;
+}
+
+.text-field,
+.combo-box {
+    -fx-pref-width: 280px;
+    -fx-pref-height: 38px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+}
+
+.button {
+    -fx-background-color: #1f4e79;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #163a5c;
+}
+
+#btnLimpiar {
+    -fx-background-color: #777777;
+}
+
+#btnLimpiar:hover {
+    -fx-background-color: #555555;
+}
+
+#resultado {
+    -fx-background-color: white;
+    -fx-padding: 15px;
+    -fx-font-size: 14px;
+    -fx-background-radius: 8px;
+}
