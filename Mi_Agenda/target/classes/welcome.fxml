@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Pos?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      alignment="CENTER"
+      spacing="15"
+      prefWidth="402"
+      prefHeight="852"
+      style="-fx-background-color: #EEEEEE; -fx-padding: 20;">
+
+    <!-- Contenedor principal -->
+    <VBox alignment="CENTER"
+          spacing="15"
+          prefWidth="361"
+          prefHeight="809"
+          style="-fx-background-color: white;
+                 -fx-background-radius: 20;
+                 -fx-border-color: #444444;
+                 -fx-border-radius: 20;
+                 -fx-padding: 20;">
+
+        <!-- Título -->
+        <Label
+                text="🗓 Mi Agenda"
+                style="-fx-font-size: 32px;
+                   -fx-font-weight: bold;
+                   -fx-text-fill: black;"/>
+
+        <!-- Imagen de Figma -->
+        <ImageView
+                fitWidth="250"
+                fitHeight="250"
+                preserveRatio="true">
+            <image>
+                <Image url="@images/agenda.png"/>
+            </image>
+        </ImageView>
+
+        <!-- Título principal -->
+        <Label
+                text="Organiza tu día de forma sencilla"
+                wrapText="true"
+                textAlignment="CENTER"
+                maxWidth="321"
+                style="-fx-font-size: 30px;
+                   -fx-font-weight: bold;
+                   -fx-text-fill: #067EF7;"/>
+
+        <!-- Descripción -->
+        <Label
+                text="Administra tus actividades, citas y pendientes desde un solo lugar"
+                wrapText="true"
+                textAlignment="CENTER"
+                maxWidth="321"
+                style="-fx-font-size: 18px;
+                   -fx-text-fill: black;"/>
+
+        <!-- Botón Ver agenda -->
+        <Button
+                text="Ver agenda"
+                prefWidth="220"
+                prefHeight="52"
+                style="-fx-background-color: #067DF7;
+                   -fx-text-fill: white;
+                   -fx-font-size: 18px;
+                   -fx-font-weight: bold;
+                   -fx-background-radius: 14;"/>
+
+        <!-- Botón Agregar actividad -->
+        <Button
+                text="Agregar actividad"
+                prefWidth="220"
+                prefHeight="52"
+                style="-fx-background-color: white;
+                   -fx-text-fill: black;
+                   -fx-font-size: 18px;
+                   -fx-font-weight: bold;
+                   -fx-border-color: #097DF8;
+                   -fx-border-width: 1;
+                   -fx-border-radius: 14;
+                   -fx-background-radius: 14;"/>
+
+    </VBox>
+
+</VBox>
