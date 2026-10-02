@@ -5,12 +5,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexion {
-    // Se corrige 'mwsql' a 'mysql'
     private static final String URL = "jdbc:mysql://localhost:3307/sistema_poo";
     private static final String USER = "root";
     private static final String PASSWORD = "123456";
 
-    public static Connection conectar() throws SQLException {
+    public static Connection conectar() throws SQLException{
         return DriverManager.getConnection(
                 URL,
                 USER,
