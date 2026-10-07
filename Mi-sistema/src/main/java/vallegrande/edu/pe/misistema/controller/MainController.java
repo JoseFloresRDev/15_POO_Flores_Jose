@@ -11,55 +11,76 @@ public class MainController {
     private MainView view;
     private UsuarioDAO usuarioDAO;
 
-    public MainController(MainView view){
+    public MainController(MainView view) {
         this.view = view;
-        usuarioDAO = new UsuarioDAO();
+        this.usuarioDAO = new UsuarioDAO();
         configurarEventos();
     }
 
     public void configurarEventos() {
-        view.getBtnInicio().setOnAction(e -> {
-            view.mostrarInicio();
-        });
+        // Eventos de navegación
+        view.getBtnInicio().setOnAction(e -> view.mostrarInicio());
 
         view.getBtnUsuarios().setOnAction(e -> {
             view.mostrarUsuarios();
             cargarUsuarios();
         });
 
-        view.getBtnRegistrar().setOnAction(e -> {
-            registrarUsuario();
+        // Eventos de operaciones CRUD
+        view.getBtnRegistrar().setOnAction(e -> registrarUsuario());
+        view.getBtnActualizar().setOnAction(e -> actualizarUsuario());
+        view.getBtnEliminar().setOnAction(e -> eliminarUsuario());
+
+        // Evento al hacer clic en la fila de la TableView
+        view.getTablaUsuarios().setOnMouseClicked(e -> {
+            Usuario usuario = view.getUsuarioSeleccionado();
+            if (usuario != null) {
+                view.cargarUsuarioEnFormulario(usuario);
+            }
         });
     }
 
-    private void cargarUsuarios(){
+    private void cargarUsuarios() {
         List<Usuario> usuarios = usuarioDAO.listar();
         view.mostrarDatosUsuarios(usuarios);
     }
 
-    private void registrarUsuario(){
-        // Validar que los campos no estén vacíos
-        if (view.getNombre().isBlank() ||
-                view.getApellido().isBlank() ||
-                view.getCorreo().isBlank() ||
-                view.getEstado().isBlank()) {
-
-            System.out.println("Por favor, completa todos los campos del formulario.");
-            return;
-        }
-
-        // Crear la entidad con los datos ingresados
+    private void registrarUsuario() {
         Usuario usuario = new Usuario();
         usuario.setNombre(view.getNombre());
         usuario.setApellido(view.getApellido());
         usuario.setCorreo(view.getCorreo());
         usuario.setEstado(view.getEstado());
 
-        // Insertar en la base de datos
         usuarioDAO.insertar(usuario);
-
-        // Limpiar el formulario y actualizar la tabla
-        view.limpiarFormulario();
         cargarUsuarios();
+        view.limpiarFormulario();
+    }
+
+    private void actualizarUsuario() {
+        Usuario usuario = view.getUsuarioSeleccionado();
+        if (usuario == null) {
+            return;
+        }
+
+        usuario.setNombre(view.getNombre());
+        usuario.setApellido(view.getApellido());
+        usuario.setCorreo(view.getCorreo());
+        usuario.setEstado(view.getEstado());
+
+        usuarioDAO.actualizar(usuario);
+        cargarUsuarios();
+        view.limpiarFormulario();
+    }
+
+    private void eliminarUsuario() {
+        Usuario usuario = view.getUsuarioSeleccionado();
+        if (usuario == null) {
+            return;
+        }
+
+        usuarioDAO.eliminar(usuario.getId());
+        cargarUsuarios();
+        view.limpiarFormulario();
     }
 }
