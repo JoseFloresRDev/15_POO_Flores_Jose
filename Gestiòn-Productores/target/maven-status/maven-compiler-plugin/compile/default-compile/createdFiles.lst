@@ -1,0 +1,6 @@
+vallegrande\edu\pe\misistema\Main.class
+vallegrande\edu\pe\misistema\model\Conexion.class
+vallegrande\edu\pe\misistema\model\ProductorDAO.class
+vallegrande\edu\pe\misistema\controller\MainController.class
+vallegrande\edu\pe\misistema\model\Productor.class
+vallegrande\edu\pe\misistema\view\MainView.class
